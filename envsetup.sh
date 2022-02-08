@@ -153,11 +153,7 @@ function check_product()
         echo "Couldn't locate the top of the tree.  Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^evolution_") ; then
-        EVOLUTION_BUILD=$(echo -n $1 | sed -e 's/^evolution_//g')
-    else
-        EVOLUTION_BUILD=
-    fi
+    export EVOLUTION_BUILD=$(echo -n $1 | sed -e 's/^evolution_//g')
     export EVOLUTION_BUILD
 
         TARGET_PRODUCT=$1 \
